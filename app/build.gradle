@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.app.playotest"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    /*Support*/
+    implementation "com.android.support:support-v4:$supportLibrary"
+    implementation "com.android.support:support-v13:$supportLibrary"
+    implementation "com.android.support:design:$supportLibrary"
+    implementation "com.android.support:appcompat-v7:$supportLibrary"
+
+    /*SDP dependency*/
+    implementation "com.intuit.sdp:sdp-android:$sdp"
+    implementation "com.intuit.ssp:ssp-android:$sdp"
+
+    /*Networking*/
+    implementation "com.squareup.okhttp3:okhttp:$okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+
+
+
+}
